@@ -1,8 +1,5 @@
 package com.tw.step;
-
 import java.util.HashMap;
-
-import static com.sun.tools.javadoc.Main.execute;
 
 public class HomeAssistant {
     private HashMap<String, Command> commands;
@@ -25,5 +22,9 @@ public class HomeAssistant {
             throw new CommandNotFoundException();
         }
         command.execute();
+    }
+    public static void main(String args[]) {
+        for(int i=0;i<args.length;i++)
+            System.out.println(args[i]);
     }
 }

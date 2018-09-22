@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import static org.mockito.Mockito.*;
 
+
 public class HomeAssistantTest {
 
     private HomeAssistant homeAssistant;
@@ -45,13 +46,6 @@ public class HomeAssistantTest {
     }
 
     @Test
-    public void foo() throws CommandNotFoundException {
-        SquareLight squareLight = new SquareLight();
-        homeAssistant.addCommand("Hello",()->{squareLight.on();});
-        homeAssistant.listen("Hello");
-    }
-
-    @Test
     public void shouldIncreaseTheVolumeOfHomeTheater() throws CommandNotFoundException {
         HomeTheatre homeTheatre = mock(HomeTheatre.class);
         homeAssistant.addCommand("increase volume",()->homeTheatre.volumeUp());
@@ -62,7 +56,7 @@ public class HomeAssistantTest {
     @Test
     public void shouldDecreaseTheVolumeOfHomeTheater() throws CommandNotFoundException {
         HomeTheatre homeTheatre = mock(HomeTheatre.class);
-        homeAssistant.addCommand("increase down",()->homeTheatre.volumeUp());
+        homeAssistant.addCommand("decrease volume",()->homeTheatre.volumeDown());
         homeAssistant.listen("decrease volume");
         verify(homeTheatre).volumeDown();
     }
